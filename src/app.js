@@ -17,7 +17,7 @@ const app = async () => {
     } else if (argv.list) {
         list()
     } else if (argv.update){
-        update()
+        await update()
 
     } else if (argv.deleteMovie){
         deleteMovie()

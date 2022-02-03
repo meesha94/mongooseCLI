@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const { argv } = require('yargs');
 const { discriminator } = require('./filmModel');
 const FilmModel = require('./filmModel');
 
@@ -26,7 +27,9 @@ exports.list = async () => {
 
 exports.update = async () => {
     try {
-        await FilmModel.findOneAndUpdate({name:"spiderman2"}, {actor:"tobey maguire"})
+        
+        await FilmModel.updateMany({actor:argv.nameUpdate},{name:argv.newName})
+        console.log('movie updated')
     } catch(error) {
         console.log(error)
     }
@@ -52,7 +55,7 @@ exports.update = async () => {
 /*
 exports.update = async () => {
     try {
-        await FilmModel.updateOne({name:"kill bill"})
+        await FilmModel.updateOne({actor:argv.nameUpdate},{name:argv.newName})
 
 
     } catch (error) {
@@ -63,7 +66,7 @@ exports.update = async () => {
 */
 exports.deleteMovie = async () => {
     try {
-        await FilmModel.deleteOne({name:"spiderman2"})
+        await FilmModel.deleteOne({name:argv.name})
 
     } catch (error) {
         console.log(error)
