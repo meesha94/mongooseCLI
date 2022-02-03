@@ -76,7 +76,7 @@ exports.deleteMovie = async () => {
 
 exports.deleteID = async () => {
     try {
-        await FilmModel.findByIdAndDelete({_id:"61fbf574b791bf3fe4f5834d"})
+        await FilmModel.findByIdAndDelete({_id:argv.id})
 
     } catch (error) {
         console.log(error)
