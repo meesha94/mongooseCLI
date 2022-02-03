@@ -9,6 +9,10 @@ const filmSchema = mongoose.Schema({
     actor: {
         type: String,
         default: 'actor unknown'
+    },
+    rating: {
+        type:String,
+        defualt: "rating unknown"
     }
 });
 
