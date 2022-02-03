@@ -24,8 +24,16 @@ exports.list = async () => {
     mongoose.connection.close()
 }
 
-
 exports.update = async () => {
+    try {
+        await FilmModel.findOneAndUpdate({name:"spiderman2"}, {actor:"tobey maguire"})
+    } catch(error) {
+        console.log(error)
+    }
+    mongoose.connection.close()
+};
+
+/*exports.update = async () => {
     try {
         const doc = await FilmModel.create({
             name: "paddington",
@@ -40,7 +48,7 @@ exports.update = async () => {
     }
     mongoose.connection.close()
 }; 
-
+/*
 /*
 exports.update = async () => {
     try {
